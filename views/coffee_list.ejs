@@ -1,0 +1,16 @@
+<% layout('layout') -%>
+
+<div class="container">
+  <h1><%= title %></h1>
+  <div class="banner">
+    <ul class="list">
+      <% if (coffee_list.length > 0) { %>
+      <% coffee_list.forEach(coffee => { %>
+        <li><a href=<%= coffee.url %>><%= coffee.name %> - <%= coffee.brand %></a></li>
+      <% }) %>
+      <% } else { %>
+        <li>We are currently out of coffee!!!</li>
+      <% } %>
+    </ul>
+  </div>
+</div>

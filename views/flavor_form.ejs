@@ -1,0 +1,29 @@
+<% layout('layout') -%>
+
+<div class="container">
+  <h1><%= title %></h1>
+  <form method="POST" action="">
+    <fieldset>
+      <legend>New Flavor:</legend>
+      <input 
+        type="text"
+        name="name"
+        id="name"
+        minlength="3"
+        maxlength="50"
+      />
+    </fieldset>
+    <button type="submit" class="btn">Submit</button>
+  </form>
+  
+  <a class="cancel" href="<%= '/store/flavors' %>">Cancel</a>
+
+  <% if (typeof errors != 'undefined') { %>
+    <ul class="errors">
+      <% errors.forEach(err => { %>
+      <li><%= err.msg %></li>
+      <% }) %>
+    </ul>
+    <% } %>
+
+</div>

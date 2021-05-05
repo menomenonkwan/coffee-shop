@@ -1,0 +1,29 @@
+<% layout('layout') -%>
+
+<div class="container">
+  <h1><%= title %></h1>
+  <div class="banner">
+
+    <% if (flavor_coffees.length > 0) { %>
+      <h3>Please Delete the following coffees before attempting to delete this flavor:</h3>
+      <ul class="list" style="list-style-type: disc;">
+        <% flavor_coffees.forEach(flavor => { %>
+          <li><a href=<%= flavor.url %>><%= flavor.name %></a></li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>Do you really want to delete <em><%= flavor.name %></em>?</p>
+      <form action="" method="POST">
+        <input
+          type="hidden"
+          name="flavorid"
+          id="flavorid"
+          value="<%= flavor._id %>"
+          required
+        />
+        <input type="submit" class="deletion" />
+      </form>
+    <% } %>
+
+  </div>
+</div>

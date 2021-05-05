@@ -1,0 +1,16 @@
+<% layout('layout') -%>
+
+<div class="container">
+  <h1><%= title %></h1>
+  <div class="banner">
+    <ul class="list">
+      <% if (roast_list.length > 0) { %>
+      <% roast_list.forEach(roast => { %>
+        <li><a href=<%= roast.url %>><%= roast.name %></a></li>
+      <% }) %>
+      <% } else { %>
+        <li>We are currently have no roasts listed. Sorry!!!</li>
+      <% } %>
+    </ul>
+  </div>
+</div>

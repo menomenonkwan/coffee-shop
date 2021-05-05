@@ -1,0 +1,17 @@
+<% layout('layout') -%>
+
+<div class="container">
+  
+  
+  <div class="banner">
+    <h1><%= coffee_info.name %></h1>
+    <h2><%= coffee_info.brand %></h2>
+    <img src="<%= coffee_info.image %>" alt="adsf" />
+    <p class="summary"><%= coffee_info.summary %></p>
+    <p class="price">$<%= coffee_info.price %></p>
+    <p>Roast: <%= coffee_info.roast.name %></p>
+    <p>Flavor: <%= coffee_info.flavor.name %></p>
+  </div>
+  <a href="<%= coffee_info.url %>/delete" class="delete-btn">Delete Coffee</a>
+  <a href="<%= coffee_info.url %>/update" class="update-btn">Update Coffee</a>
+</div>

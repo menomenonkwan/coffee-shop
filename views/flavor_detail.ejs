@@ -1,0 +1,17 @@
+<% layout('layout') -%>
+
+<div class="container">
+  <h1><%= title %></h1>
+  <div class="banner">
+    <ul class="list">
+      <% if (flavor_coffees.length > 0) { %>
+      <% flavor_coffees.forEach(coffees => { %>
+        <li><a href=<%= coffees.url %>><%= coffees.name %></a></li>
+      <% }) %>
+      <% } else { %>
+        <li>We are currently have no coffees with <%= title %>. Sorry!!!</li>
+      <% } %>
+    </ul>
+  </div>
+  <a href="<%= flavor.url %>/delete" class="delete-btn">Delete Flavor</a>
+</div>

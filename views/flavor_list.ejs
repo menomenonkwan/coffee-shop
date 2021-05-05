@@ -1,0 +1,16 @@
+<% layout('layout') -%>
+
+<div class="container">
+  <h1><%= title %></h1>
+  <div class="banner">
+    <ul class="list">
+      <% if (flavor_list.length > 0) { %>
+      <% flavor_list.forEach(flavor => { %>
+        <li><a href=<%= flavor.url %>><%= flavor.name %></a></li>
+      <% }) %>
+      <% } else { %>
+        <li>We are currently have no flavors listed. Sorry!!!</li>
+      <% } %>
+    </ul>
+  </div>
+</div>

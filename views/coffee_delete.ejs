@@ -1,0 +1,18 @@
+<% layout('layout') -%>
+
+<div class="container">
+  <h1><%= title %></h1>
+  <div class="banner">
+    <p>Do you really want to delete <em><%= coffee_info.name %>?</em></p>
+    <form action="" method="POST">
+      <input
+        type="hidden"
+        name="coffeeid"
+        id="coffeeid"
+        value="<%= coffee_info._id %>"
+        required
+      />
+      <input type="submit" class="deletion" />
+    </form>  
+  </div>
+</div>

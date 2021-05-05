@@ -1,0 +1,105 @@
+<% layout('layout') -%>
+
+<div class="container">
+  <h1><%= title %></h1>
+  <form method="POST" action="" enctype="multipart/form-data">
+    <fieldset>
+      <legend>Name *:</legend>
+      <input 
+        type="text"
+        name="name"
+        id="name"
+        minlength="3"
+        maxlength="50"
+        value="<%= typeof coffee == 'undefined' ? '' : coffee.name %>"
+      />
+    </fieldset>
+    <fieldset>
+      <legend>Brand *:</legend>
+      <input 
+        type="text"
+        name="brand"
+        id="brand"
+        minlength="3"
+        maxlength="50"
+        value="<%= typeof coffee == 'undefined' ? '' : coffee.brand %>"
+      />
+    </fieldset>
+    <fieldset>
+      <legend>Price *:</legend>
+      <div class="price-input">
+        <span class="dollar">$</span>
+        <input 
+          type="number"
+          name="price"
+          id="price"
+          min="0"
+          step="0.01"
+          value="<%= typeof coffee == 'undefined' ? '' : coffee.price %>"
+        />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Summary *:</legend>
+      <textarea 
+        name="summary" 
+        id="summary"
+        minlength="3"
+        maxlength="500"
+        style="resize: none;"
+        rows="4" cols="50"
+      >
+        <%= typeof coffee == 'undefined' ? '' : coffee.summary %>
+      </textarea>
+    </fieldset>
+    <fieldset>
+      <legend>Roast:</legend>
+      <div class="roast-select">
+        <% roasts.forEach(roast => { %>
+          <% if (typeof coffee != 'undefined') { %>
+            <% const checked = roast._id.toString() === coffee.roast._id.toString() ? 'checked' : '' %>
+              <input type="radio" id=<%= roast.name %> name="roast" value=<%= roast._id %> <%= checked %>>
+              <label for=<%= roast.name %>><%= roast.name %></label>
+            <% } else { %>
+              <input type="radio" id=<%= roast.name %> name="roast" value=<%= roast._id %>>
+              <label for=<%= roast.name %>><%= roast.name %></label>
+            <% } %>
+          <% }) %>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Flavor:</legend>
+      <select name="flavor" id="flavor" class="flavor-select">
+          <% flavors.forEach(flavor => { %>
+            <% if (typeof coffee != 'undefined') { %>
+              <% const selected = flavor._id.toString() === coffee.flavor._id.toString() ? 'selected' : '' %>
+              <option value="<%= flavor._id %>" <%= selected %>><%= flavor.name %></option>
+            <% } else { %>
+              <option value="<%= flavor._id %> "><%= flavor.name %></option>
+            <% } %>
+          <% }) %>
+      </select>
+    </fieldset>
+    <% if (typeof coffee != 'undefined') { %>
+      <input type="text" name="image" hidden value=<%= coffee.image %> >
+    <% } else { %>
+      <fieldset>
+        <legend>Image:</legend>
+        <input type="file" name='image' />
+      </fieldset>
+    <% } %>
+
+    <button type="submit" class="btn">Submit</button>
+  </form>
+  
+  <a class="cancel" href="<%= '/store/coffees' %>">Cancel</a>
+
+  <% if (typeof errors != 'undefined') { %>
+    <ul class="errors">
+      <% errors.forEach(err => { %>
+      <li><%= err.msg %></li>
+      <% }) %>
+    </ul>
+    <% } %>
+
+</div>

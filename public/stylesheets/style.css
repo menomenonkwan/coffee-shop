@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap");
+
+:root {
+  --grey: #edeae5;
+  --dg: #026670;
+  --lg: #9fedd7;
+  --dy: #fce181;
+  --ly: #fef9c7;
+  --dy-opac: rgba(252, 225, 129, 0.85);
+  --ly-opac: rgba(254, 249, 199, 0.9);
+  --dg-opac: rgba(2, 102, 112, 0.8);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: rgba(0, 0, 0, 0.9);
+}
+header {
+  background: linear-gradient(90deg, var(--dg-opac), transparent);
+  color: var(--lg);
+  padding: 20px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+body {
+  background-color: var(--ly);
+  background-image: url("../images/pexels-jason-villanueva-851555.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  max-width: 1150px;
+  margin: auto;
+  font-family: "RocknRoll One", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.wrapper {
+  display: flex;
+  flex: 1;
+}
+nav {
+  color: var(--dg);
+  background: linear-gradient(var(--dy-opac), transparent);
+}
+nav ul {
+  list-style-type: none;
+  padding: 20px;
+}
+nav li {
+  padding: 5px 0;
+}
+.nav-new {
+  border-top: 2px solid var(--ly);
+}
+a {
+  color: var(--dg);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+a:hover {
+  cursor: pointer;
+  color: var(--lg);
+  text-shadow: 1px 1px 1px var(--dg);
+}
+.container {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+.container h1 {
+  color: var(--grey);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75);
+}
+.container h2 {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+.banner {
+  color: var(--dg);
+  background: var(--dy-opac);
+  padding: 20px;
+  width: fit-content;
+  margin: 20px auto;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+}
+.banner ul {
+  list-style-type: none;
+}
+.banner li {
+  padding: 5px 0;
+  text-align: left;
+}
+footer {
+  background: var(--dg-opac);
+  color: var(--ly);
+  font-size: 10px;
+  text-align: center;
+  padding: 10px 20px;
+}
+.price {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.summary {
+  font-size: 14px;
+  padding: 10px;
+}
+
+/* FORM */
+form {
+  background: var(--dg-opac);
+  max-width: 500px;
+  margin: 10px auto 20px auto;
+  padding: 5px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.75);
+}
+legend {
+  text-align: initial;
+  margin: 0 15px;
+  padding: 0 5px;
+  color: var(--lg);
+}
+
+fieldset {
+  border-radius: 2px;
+  border: 2px solid var(--lg);
+  margin: 20px;
+}
+
+fieldset:focus-within {
+  transition: border 0.3s;
+  border: 2px solid var(--dy);
+}
+
+fieldset:focus-within legend {
+  animation: blinking 3s infinite ease-in-out;
+}
+
+@keyframes blinking {
+  0% {
+    color: var(--lg);
+  }
+  50% {
+    color: var(--ly);
+  }
+  100% {
+    color: var(--lg);
+  }
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  width: 100%;
+  height: 100%;
+  padding: 5px 15px 10px 15px;
+  font-size: 20px;
+  border: transparent;
+  background: transparent;
+  color: var(--ly);
+  outline: transparent;
+}
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+}
+.price-input {
+  display: flex;
+}
+.dollar {
+  padding: 5px 15px 0 15px;
+}
+#price {
+  padding-left: 0;
+}
+.roast-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+.roast-select label {
+  padding: 0 20px 0 5px;
+}
+.flavor-select {
+  color: var(--dy);
+}
+.flavor-select option {
+  background: var(--lg);
+  color: var(--dg);
+}
+.btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--lg);
+  padding: 5px 10px;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  margin-bottom: 10px;
+}
+.btn:hover {
+  cursor: pointer;
+  background: var(--lg);
+  color: var(--dg);
+}
+.list {
+  width: fit-content;
+  margin: auto;
+}
+.delete-btn {
+  color: var(--ly);
+  background: var(--dg);
+  padding: 5px 10px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
+  transition: all 0.3s ease;
+}
+.delete-btn:hover {
+  cursor: pointer;
+  color: var(--dg);
+  background: var(--dy);
+}
+.update-btn {
+  color: var(--lg);
+  background: var(--dg);
+  padding: 5px 10px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
+  transition: all 0.3s ease;
+}
+.update-btn:hover {
+  cursor: pointer;
+  color: var(--dg);
+  background: var(--lg);
+}
+.deletion {
+  transform: scale(1);
+  transition: all 0.3s ease;
+}
+.deletion:hover {
+  cursor: pointer;
+  color: var(--lg);
+  transform: scale(1.1);
+}
+.cancel {
+  color: var(--dg);
+  background: var(--dy);
+  padding: 5px 10px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
+}
+
+input:-webkit-autofill {
+  transition: background-color 5000s;
+  -webkit-text-fill-color: var(--dy) !important;
+}
+.errors {
+  font-size: 25px;
+  margin: 20px;
+  color: darkred;
+  list-style-type: none;
+}
+img {
+  width: 100px;
+  height: 100px;
+  margin: 20px 0;
+}
