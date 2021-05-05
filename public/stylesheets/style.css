@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap");
 
 :root {
@@ -12,6 +19,7 @@
 }
 
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -21,6 +29,14 @@ html {
   background: rgba(0, 0, 0, 0.9);
 }
 header {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(var(--dg-opac)),
+    to(transparent)
+  );
+  background: -o-linear-gradient(left, var(--dg-opac), transparent);
   background: linear-gradient(90deg, var(--dg-opac), transparent);
   color: var(--lg);
   padding: 20px;
@@ -37,15 +53,32 @@ body {
   margin: auto;
   font-family: "RocknRoll One", sans-serif;
   min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
 }
 nav {
   color: var(--dg);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(var(--dy-opac)),
+    to(transparent)
+  );
+  background: -o-linear-gradient(var(--dy-opac), transparent);
   background: linear-gradient(var(--dy-opac), transparent);
 }
 nav ul {
@@ -61,6 +94,8 @@ nav li {
 a {
   color: var(--dg);
   text-decoration: none;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 a:hover {
@@ -69,6 +104,8 @@ a:hover {
   text-shadow: 1px 1px 1px var(--dg);
 }
 .container {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   padding: 20px;
   text-align: center;
@@ -84,8 +121,11 @@ a:hover {
   color: var(--dg);
   background: var(--dy-opac);
   padding: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 20px auto;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
 }
 .banner ul {
@@ -118,6 +158,7 @@ form {
   margin: 10px auto 20px auto;
   padding: 5px;
   border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.75);
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.75);
 }
 legend {
@@ -134,12 +175,27 @@ fieldset {
 }
 
 fieldset:focus-within {
+  -webkit-transition: border 0.3s;
+  -o-transition: border 0.3s;
   transition: border 0.3s;
   border: 2px solid var(--dy);
 }
 
 fieldset:focus-within legend {
+  -webkit-animation: blinking 3s infinite ease-in-out;
   animation: blinking 3s infinite ease-in-out;
+}
+
+@-webkit-keyframes blinking {
+  0% {
+    color: var(--lg);
+  }
+  50% {
+    color: var(--ly);
+  }
+  100% {
+    color: var(--lg);
+  }
 }
 
 @keyframes blinking {
@@ -172,6 +228,8 @@ input[type="radio"] {
   height: 20px;
 }
 .price-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .dollar {
@@ -181,8 +239,14 @@ input[type="radio"] {
   padding-left: 0;
 }
 .roast-select {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 20px 0;
 }
@@ -203,6 +267,8 @@ input[type="radio"] {
   color: var(--lg);
   padding: 5px 10px;
   border-radius: 2px;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   margin-bottom: 10px;
 }
@@ -212,6 +278,8 @@ input[type="radio"] {
   color: var(--dg);
 }
 .list {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
 }
@@ -220,7 +288,10 @@ input[type="radio"] {
   background: var(--dg);
   padding: 5px 10px;
   border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .delete-btn:hover {
@@ -233,7 +304,10 @@ input[type="radio"] {
   background: var(--dg);
   padding: 5px 10px;
   border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .update-btn:hover {
@@ -242,12 +316,18 @@ input[type="radio"] {
   background: var(--lg);
 }
 .deletion {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
   transform: scale(1);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 .deletion:hover {
   cursor: pointer;
   color: var(--lg);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
   transform: scale(1.1);
 }
 .cancel {
@@ -255,10 +335,12 @@ input[type="radio"] {
   background: var(--dy);
   padding: 5px 10px;
   border-radius: 2px;
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
 }
 
 input:-webkit-autofill {
+  -webkit-transition: background-color 5000s;
   transition: background-color 5000s;
   -webkit-text-fill-color: var(--dy) !important;
 }
